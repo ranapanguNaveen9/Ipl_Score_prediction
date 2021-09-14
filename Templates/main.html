@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>IPL_Score_Prediction_Naveen_RKO</title>
+    <style>
+        body {
+          background-image: url('Image 2021-05-06 at 20.50.18.jpeg');
+          background-repeat: no-repeat;
+          background-attachment: fixed;  
+          background-size: cover;
+        }
+        /* Form */
+        .form-input{
+	        background-color: #E9E9E9;
+	        width: 370px;
+	        height: 30px;
+	        border-radius: 3px;
+	        border: 0;
+	        text-align: center;
+	        -webkit-box-shadow: inset 7px 3px 16px -10px rgba(0,0,0,0.75);
+	        -moz-box-shadow: inset 7px 3px 16px -10px rgba(0,0,0,0.75);
+	        box-shadow: inset 7px 3px 16px -10px rgba(0,0,0,0.75);
+	        margin-bottom: 15px;
+        }
+
+        .align-center{
+	        padding: 0 30px;
+        }
+        /* Predict Button */
+        .myButton {
+            background-color:#0c0c0c;
+	        border-radius: 5px;
+	        display:inline-block;
+	        cursor:pointer;
+	        color:#ffffff;
+	        font-family:Arial;
+	        font-size:15px;
+	        font-weight:bold;
+	        padding:7px 30px;
+	        margin-top: 10px;
+	        text-decoration:none;
+	        transition: 0.5s ease-out;
+        }
+
+        .myButton:hover{
+	        background-color: #E9E9E9;
+	        color: #000000;
+	        box-shadow: inset 7px 3px 16px -10px rgba(0,0,0,0.75);
+        }
+
+        .myButton:active {
+	        position:relative;
+	        top:1px;
+        }
+        .footer-description{
+            margin: 0;
+            font-size: 12px;
+            font-weight: 100;
+        }
+        /* Result */
+        .results{
+            display: inline-block;
+            width: auto;
+            height: 429px;
+            line-height: 400px;
+            text-align: center;
+        }
+
+        .danger{
+            color: #ff0000;
+        }
+
+        .safe{
+            color: green;
+        }
+
+
+      </style>
+</head>
+<body>
+   <div class="main"; column-gap: 40px >
+        <center><h1 style="color:black;font-size:250%;">Final Score Prediction of first innings</h1>
+            <div class='descrption'>
+              <p style="color:green;font-size: 150%;">IPL score prediction after 6 overs, built with Flask and deployed using Heroku.</p>
+            </div>
+
+        <form action="{{ url_for('predict') }}" method="POST">
+            <!-- Batting Team Dropdown -->
+                <select class="form-input align-center" name="batting-team">
+                    <option value="none">--- Select a Batting team ---</option>
+                    <option value="Mumbai Indians">Mumbai Indians</option>
+                    <option value="Kolkata Knight Riders">Kolkata Knight Riders</option>
+                    <option value="Chennai Super Kings">Chennai Super Kings</option>
+                    <option value="Rajasthan Royals">Rajasthan Royals</option>
+                    <option value="Punjab Kings">Punjab Kings</option>
+                    <option value="Royal Challengers Bangalore">Royal Challengers Bangalore</option>
+                    <option value="Delhi Capitals">Delhi Capitals</option>
+                    <option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
+                </select><br>
+            <!-- Bowling Team Dropdown -->
+                <select class="form-input align-center" name="bowling-team">
+                    <option value="none">--- Select a Bowling team ---</option>
+                    <option value="Mumbai Indians">Mumbai Indians</option>
+                    <option value="Kolkata Knight Riders">Kolkata Knight Riders</option>
+                    <option value="Chennai Super Kings">Chennai Super Kings</option>
+                    <option value="Rajasthan Royals">Rajasthan Royals</option>
+                    <option value="Kings XI Punjab">Punjab Kings</option>
+                    <option value="Royal Challengers Bangalore">Royal Challengers Bangalore</option>
+                    <option value="Delhi Daredevils">Delhi Capitals</option>
+                    <option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
+                </select><br>
+                <input class="form-input" type="text" name="overs" placeholder="Overs (>= 6.0) eg. 8.4"><br>
+                <input class="form-input" type="text" name="runs" placeholder="Runs eg. 80"><br>
+                <input class="form-input" type="text" name="wickets" placeholder="Wickets eg. 3"><br>
+                <input class="form-input" type="text" name="striker_score" placeholder="Striker score eg. 20"><br>
+                <input class="form-input" type="text" name="non_striker_score" placeholder="Non striker score eg. 10"><br>
+                <input class="form-input" type="text" name="runs_last_5" placeholder="Runs scored in previous 5 Overs eg. 60"><br>
+                <input class="form-input" type="text" name="wickets_last_5" placeholder="Wickets taken in previous 5 Overs eg. 3"><br>
+
+			<input type="submit" class="myButton" value="Predict Score">
+        </form>
+
+   <!--Footer-->
+   <footer class="footer">
+       <center><p style="color:yellowgreen;font-size: 150%;"class='footer-description'>With love ❤️ NaveenRko ❤️</p></center>
+   </footer>
+        
+
+   </div> 
+</body>
+
+</html>
